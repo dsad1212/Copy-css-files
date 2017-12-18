@@ -7,10 +7,12 @@ require_once "core/load.php";
         $ch = curl_init(); 
 
         $website = ""; // here you write the website !
-        curl_setopt($ch, CURLOPT_URL, $website); 
-
-        //return the transfer as a string 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+    curl_setopt($ch, CURLOPT_URL, $website); 
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_VERBOSE, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         
 $output = curl_exec($ch); 
